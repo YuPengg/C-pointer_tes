@@ -18,16 +18,15 @@ int main()
 
 }
 
-void func(int* p)
+void func(int** p)
 {
    cout <<"+++++++"<<__FUNCTION__<<"+++++++"<<endl;
    cout << "before address: "<<p<<"   value: "<<*p<<endl;
-  // *p = 8;
+  // *p = new int(8);
+   cout << "address: "<<*p<<"   value: "<<**p<<endl;
 
-   p[0] =0;
-   p[1]=0;
-   p=new int(10);
-   cout << "change address: "<<p<<"   value: "<<*p<<endl;
+  // p[0] =0;
+  // p[1]=0;
 }
 
 
@@ -41,15 +40,15 @@ void func_2(int a[][2])
    cout << "point address: "<<&pp<<"point  value: "<<pp << " point prefer value: "<<*pp<<endl;
    cout <<"------------------------------"<<endl;
 
-   func(a[0]);
-  // func(pp);
+   //func(a[0]);
+   func(&pp);
    
    cout <<"----------func退出后-------------"<<endl;
    cout << "after int address: "<<&b<<" int value: "<<b<<endl;
    cout << "after address: "<<&pp<<"   value: "<<pp<<endl;
    cout << "after address: "<<pp<<"   value: "<<*pp<<endl;
    cout <<"------------------------------"<<endl;
-   cout << "array ddress: "<<a[0]<<endl;
+   //cout << "address: "<<a[0]<<endl;
 
 //   cout<<"调用后:"<<"a[0][0]= "<<a[0][0]<<", a[0][1]= "<<a[0][1]<<endl;
 }
